@@ -1,0 +1,467 @@
+
+ag_news：
+
+
+cnn:
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -ft cnn
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -ft cnn -at same_init -et cnn
+
+rnn-cnn-same
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -ft cnn -at same_init -et rnn
+
+attend_rnn-cnn-same
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 0.1 -o Adadelta -ld -ft cnn -at same_init -et attend_rnn
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -ft cnn -at attend_init -et cnn
+
+
+rnn-cnn-attend
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et rnn
+ 
+
+attend_rnn-cnn-attend
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 0.1 -o Adadelta -ld -ft cnn -at attend_init -et attend_rnn
+
+
+
+drnn:
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -es 128
+
+cnn-drnn-same
+	 	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -l2 -es 128 -et cnn -at same_init 
+ 
+
+rnn-drnn-same
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -es 128 -et rnn -at same_init
+
+cnn-drnn-attend
+	python -u src/run_drnn.py conf/disconnected_rnn/ag_news.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 128 -b 128 -ebi 500 -l 1 -o Adadelta -ld -es 128 -et cnn -at attend_init 
+
+
+amazon_full：
+
+cnn:
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 1 -o Adadelta -ld -l2 -ft cnn
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 1 -o Adadelta -ld -ft cnn -at same_init -et cnn
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 1 -o Adadelta -ld -l2 -ft cnn -at same_init -et rnn
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 1 -o Adadelta -ld -l2 -ft cnn -at same_init -et attend_rnn
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et cnn
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et rnn
+ 
+
+attend_rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 0.5 -o Adadelta -ld -l2 -ft cnn -at attend_init -et attend_rnn
+
+
+drnn:
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 10000 -l 0.3 -o Adadelta -ld -l2
+
+
+
+attend_rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 10000 -l 0.5 -o Adadelta -ld -l2 -at attend_init -et attend_rnn
+
+
+
+amazon_polarity：
+
+cnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 1 -o Adadelta -ld -ft cnn
+
+
+cnn-cnn-same
+	python -u src/run_drnn.py conf/disconnected_rnn/		amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 100 -ebi 8000 -l 1 -o Adadelta -ld -ft cnn -at same_init -et cnn 
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/	amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 1 -o Adadelta -	ld -l2 -ft cnn -at same_init -et rnn
+
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 1 -o Adadelta -ld -l2 -ft cnn -at same_init -et attend_rnn
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et cnn
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et rnn
+
+
+attend_rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.5 -o Adadelta -ld -l2 -ft cnn -at attend_init -et attend_rnn 
+
+
+drnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 64 -ebi 8000 -l 0.1 -o Adadelta -ld -l2
+
+
+cnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et cnn
+
+
+rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et rnn
+
+
+attend_rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et attend_rnn
+
+
+
+cnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 3e-4 -o Adam -ld -l2 -at attend_init -et cnn
+
+
+rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 3e-4 -o Adam -ld -l2 -at attend_init -et rnn
+
+
+attend_drnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/amazon_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 8000 -l 0.1 -o Adadelta -ld -l2 -at attend_init -et attend_rnn
+
+
+
+yelp_full：
+cnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2500 -l 1 -o Adadelta -ld -ft cnn
+
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -ft cnn -et cnn -at same_init
+
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -l2 -ft cnn -et rnn -at same_init
+
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at same_init
+
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -ft cnn -et cnn -at attend_init 
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -l2 -ft cnn -et rnn -at attend_init
+
+
+
+attend_rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at attend_init
+
+
+drnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2500 -l 1 -o Adadelta -ld -l2
+
+
+cnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1 -o Adadelta -ld -l2 -at same_init -et cnn
+
+rnn-drnn-same
+
+    python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1 -o Adadelta -ld -l2 -at same_init -et rnn
+
+
+
+attend_rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1 -ld -l2 -at same_init -et attend_rnn
+
+
+
+cnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 0.8 -ld -l2 -at attend_init -et cnn
+
+
+rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1.5 -ld -l2 -at attend_init -et rnn
+
+
+attend_rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_full.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1 -ld -l2 -at attend_init -et attend_rnn
+
+
+
+yelp_polarity：
+
+cnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -ft cnn
+
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -ft cnn -et cnn -at same_init
+
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn -et rnn -at same_init  
+
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at same_init
+
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -ft cnn -et cnn -at attend_init
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn -et rnn -at attend_init 
+
+attend_rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at attend_init
+
+
+drnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 100 -ebi 2000 -ld -l2  
+
+
+cnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2000 -ld -l2 -at same_init -et cnn
+
+
+rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2000 -ld -l2 -at same_init -et rnn
+
+
+attend_rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1 -ld -l2 -at same_init -et attend_rnn
+
+
+
+cnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 1.5 -ld -l2 -at attend_init -et cnn
+
+
+rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 0.5 -ld -l2 -at attend_init -et rnn
+
+attend_rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yelp_review_polarity.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 300 -b 64 -ebi 2500 -l 0.8 -ld -l2 -at attend_init -et attend_rnn
+
+
+yahoo：
+
+cnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 1 -o Adadelta -ld -ft cnn
+
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -et cnn -at same_init
+
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -et rnn -at same_init
+
+
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at same_init
+
+
+
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -ft cnn -et cnn -at attend_init
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -ft cnn -et rnn -at attend_init
+ 
+
+attend_rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -et attend_rnn -at attend_init
+
+
+
+drnn
+baseline
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 3e-4 -o Adam -ld
+
+
+cnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et cnn
+
+rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et rnn
+
+
+attend_rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -at same_init -et attend_rnn
+
+
+
+cnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -at attend_init -et cnn 
+
+
+
+rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -at attend_init -et rnn
+
+attend_rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/yahoo_answers.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 256 -b 128 -ebi 4000 -l 0.1 -o Adadelta -ld -l2 -at attend_init -et attend_rnn
+
+
+sogou：
+
+cnn
+baseline
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 600 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn
+
+
+cnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 600 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -ft cnn -at same_init -et cnn
+
+
+rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 600 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -l2 -ft cnn -at same_init -et rnn
+
+
+attend_rnn-cnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 600 -b 128 -ebi 2000 -l 1 -o Adadelta -ld -ft cnn -at same_init -et attend_rnn
+
+cnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 700 -b 32 -ebi 2000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et cnn 
+
+
+rnn-cnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 700 -b 32 -ebi 2000 -l 0.1 -o Adadelta -ld -l2 -ft cnn -at attend_init -et rnn 
+
+attend_rnn-cnn-attend
+
+
+drnn
+baseline
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 64 -ebi 2000 -l 0.1 -o Adadelta -ld -l2
+
+
+
+cnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 0.1 -o Adadelta -ld -l2 -at same_init -et cnn
+
+rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 1 -o Adadelta -ld -l2 -at same_init -et rnn
+
+
+attend_rnn-drnn-same
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 1 -o Adadelta -ld -l2 -at same_init -et attend_rnn
+
+
+cnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 0.1 -o Adadelta -ld -l2 -at attend_init -et cnn
+
+
+rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 1 -o Adadelta -ld -l2 -at attend_init -et rnn
+
+
+attend_rnn-drnn-attend
+
+	python -u src/run_drnn.py conf/disconnected_rnn/sogou.config -n -r 0.1 -f 0.5 -fd 0.2 -msl 400 -b 32 -ebi 2000 -l 1 -o Adadelta -ld -l2 -at attend_init -et attend_rnn
